@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.1"
   s.summary      = ""
   s.description  = <<-DESC
-    Your description here.
+    Simple framework that allows to explicitly follow and observe changes made in an object/value.
   DESC
   s.homepage     = "https://github.com/nonameplum/Changeable"
   s.license      = { :type => "MIT", :file => "LICENSE" }

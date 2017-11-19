@@ -35,7 +35,6 @@ extension Change where T == SomeState {
     }
 }
 
-
 // Example
 
 let value = Changeable<SomeState>(value: SomeState())
@@ -78,3 +77,7 @@ print("pending changes: \(value.pendingChanges) count: \(value.pendingChanges.co
 value.reset()
 print("Reset --------------------------")
 print("pending changes count: \(value.pendingChanges.count)")
+
+if let lastCounterValue = value.lastChangeMatching(\SomeState.counter) {
+    print("last changed counter value: \(lastCounterValue)")
+}

@@ -74,4 +74,8 @@ open class Changeable<T> {
     public func reset() {
         clear()
     }
+
+    public func lastChangeMatching<Value>(_ keyPath: KeyPath<T, Value>) -> Value? {
+        return (lastChanges as Set<AnyKeyPath>).matching(keyPath, on: value)
+    }
 }

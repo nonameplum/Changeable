@@ -136,4 +136,31 @@ class ChangeableTests: XCTestCase {
         print(disposeBag)
         XCTAssertTrue(disposeBag == nil)
     }
+
+    func testLastChanges() {
+        changeableStruct.set(for: \TestStruct.counter, value: 1)
+        changeableStruct.commit()
+        XCTAssertTrue(changeableStruct.lastChanges == Set([\TestStruct.counter]))
+
+        changeableStruct.reset()
+        XCTAssertTrue(changeableStruct.lastChanges == Set([\TestStruct.counter]))
+
+        changeableStruct.set(for: \TestStruct.counter, value: 2)
+        changeableStruct.set(for: \TestStruct.isLoading, value: true)
+        changeableStruct.commit()
+        XCTAssertTrue(changeableStruct.lastChanges == Set([\TestStruct.counter, \TestStruct.isLoading]))
+    }
+
+    func testLastChangeMatching() {
+        changeableStruct.set(for: \TestStruct.counter, value: 1)
+        changeableStruct.commit()
+
+        if let counter = changeableStruct.lastChangeMatching(\TestStruct.counter) {
+            XCTAssertTrue(counter == 1)
+        } else {
+            XCTFail("Coun't get counter value from last changes")
+        }
+
+        XCTAssertTrue(changeableStruct.lastChangeMatching(\TestStruct.isLoading) == nil)
+    }
 }
