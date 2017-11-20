@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = "Changeable"
   s.version      = "0.1"
-  s.summary      = ""
+  s.summary      = "Simple framework that allows to explicitly follow and observe changes made in an object/value."
   s.description  = <<-DESC
     Simple framework that allows to explicitly follow and observe changes made in an object/value.
   DESC
