@@ -1,12 +1,10 @@
-# Changeable
-
-
 <H1 align="center">Changeable</H1>
 <H4 align="center">
 Simple framework that allows to explicitly follow and observe changes made in an object/value.
 </H4>
-</br>
-
+<p align="center">
+<img alt="Changeable" src="Resources/Changeable.png" width="200" />
+</p>
 <p align="center">
 <a href="https://developer.apple.com/swift"><img alt="Swift4" src="https://img.shields.io/badge/language-swift4-orange.svg?style=flat"/></a>
 <a href="https://cocoapods.org/pods/Changeable"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/Changeable.svg"/></a>
