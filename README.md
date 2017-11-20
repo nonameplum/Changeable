@@ -23,6 +23,8 @@ Simple framework that allows to explicitly follow and observe changes made in an
 
 In addition `Changeable` gives you possibility to check current pending changes and last made changes. Also `Changeable` can be observed with changes that occurs during it's lifetime.
 
+This gives the opportunity to react on specific state changes that you are interested in.
+
 Example:
 
 ```swift
@@ -36,6 +38,10 @@ let value = Changeable<SomeState>(value: SomeState())
 value.add(observer: { (change) in
     if change.changedKeyPaths == [\SomeState.isLoading] {
         print("⏳ Loading has changed")
+    }
+    
+    if change ~= [\SomeState.counter] {
+    	print("💯 Counter has changed")
     }
     
     if let counter = change.changeMatching(\SomeState.counter) {
@@ -52,6 +58,10 @@ value.reset()
 
 if let lastCounterValue = value.lastChangeMatching(\SomeState.counter) {
     print("last changed counter value: \(lastCounterValue)") // Output: 1
+}
+
+if value.lastChanges.contains(\SomeState.isLoading) {
+    print("The last changes contains loading change")
 }
 ```
 

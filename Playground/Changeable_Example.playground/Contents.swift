@@ -51,7 +51,7 @@ value.add(observer: { (change) in
     if change ~= Change<SomeState>.StateChange.loading.changesDefinition {
         print("♦️ Contains loading")
     }
-
+    
     if let counter = change.changeMatching(\SomeState.counter) {
         print("💯 Counter: \(counter)")
     }
@@ -80,4 +80,8 @@ print("pending changes count: \(value.pendingChanges.count)")
 
 if let lastCounterValue = value.lastChangeMatching(\SomeState.counter) {
     print("last changed counter value: \(lastCounterValue)")
+}
+
+if value.lastChanges.contains(\SomeState.isLoading) {
+    print("The last changes contains loading change")
 }
