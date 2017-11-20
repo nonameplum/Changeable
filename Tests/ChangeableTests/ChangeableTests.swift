@@ -96,7 +96,7 @@ class ChangeableTests: XCTestCase {
     }
 
     func testObservalbeMatching_Success() {
-        let exp = expectation(description: "obseve changes matching")
+        let exp = expectation(description: "observe changes matching")
 
         let disposeBag = DisposeBag()
         changeableStruct.add(matching: [\TestStruct.counter], observer: { change in
@@ -111,7 +111,7 @@ class ChangeableTests: XCTestCase {
     }
 
     func testObservalbeMatching_Failure() {
-        let exp = expectation(description: "obseve changes not matching")
+        let exp = expectation(description: "observe changes not matching")
 
         let disposeBag = DisposeBag()
         changeableStruct.add(matching: [\TestStruct.counter], observer: { change in
@@ -124,6 +124,27 @@ class ChangeableTests: XCTestCase {
         changeableStruct.commit()
 
         wait(for: [exp], timeout: 2)
+    }
+
+    func testObservalbeMatching_Not_Matching() {
+        let exp = expectation(description: "observe changes not matching")
+        var notCalled = true
+
+        let disposeBag = DisposeBag()
+        changeableStruct.add(matching: [\TestStruct.counter], observer: { change in
+            notCalled = false
+        }).addDisposableTo(disposeBag)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            exp.fulfill()
+        })
+
+        changeableStruct.set(for: \TestStruct.isLoading, value: true)
+        changeableStruct.commit()
+
+        waitForExpectations(timeout: 2) { (error) in
+            XCTAssertTrue(notCalled)
+        }
     }
 
     func testObservableMemoryLeak() {
