@@ -26,44 +26,91 @@ This gives the opportunity to react on specific state changes that you are inter
 Example:
 
 ```swift
-class SomeState {
-    var isLoading: Bool = false
-    var counter: Int = 0
+struct SomeState {
+    var isLoading: Bool
+    var counter: Int
 }
 
-let value = Changeable<SomeState>(value: SomeState())
+let state = Changeable<SomeState>(value: SomeState(isLoading: false, counter: 0))
 
-value.add(observer: { (change) in
-    if change.changedKeyPaths == [\SomeState.isLoading] {
-        print("⏳ Loading has changed")
+state.set(for: \SomeState.counter, value: 1)
+print(state.pendingChanges.count) // 1
+print(state.pendingChanges.contains(\SomeState.counter)) // true
+state.commit()
+print(state.value.counter) // 1
+
+state.set(for: \SomeState.isLoading, value: true)
+state.reset()
+print(state.value.isLoading) // false
+
+// Observer will be notifed once for every commit
+// We can observe only changes that match keyPaths
+let disposable = state.add(matching: [\SomeState.isLoading], observer: { change in
+    if let isLoading = change.changeMatching(\SomeState.isLoading) {
+        print("⏳ Loading: \(isLoading)")
     }
-    
-    if change ~= [\SomeState.counter] {
-    	print("💯 Counter has changed")
+
+    if change ~= [\SomeState.isLoading] {
+        print("Contains change isLoading")
     }
-    
-    if let counter = change.changeMatching(\SomeState.counter) {
-        print("💯 Counter: \(counter)") // Output: 1
+
+    if change.changedKeyPaths == [\SomeState.isLoading, \SomeState.counter] {
+        // Sorry, no
     }
 })
 
-value.set(for: \SomeState.isLoading, value: false)
-value.set(for: \SomeState.counter, value: 1)
-value.commit()
+state.set(for: \SomeState.isLoading, value: true)
+state.commit() // Observer called
+disposable.dispose()
 
-value.set(for: \SomeState.counter, value: 2)
-value.reset()
+// We could define change cases that we are interested in
+extension Change where T == SomeState {
+    enum StateChange {
+        case everything
+        case loading
 
-if let lastCounterValue = value.lastChangeMatching(\SomeState.counter) {
-    print("last changed counter value: \(lastCounterValue)") // Output: 1
+        var changesDefinition: Set<PartialKeyPath<T>> {
+            switch self {
+            case .everything:
+                return Set([\SomeState.counter, \SomeState.isLoading])
+            case .loading:
+                return Set([\SomeState.isLoading])
+            }
+        }
+    }
+
+    func changesEqual(to change: StateChange) -> Bool {
+        return change.changesDefinition == changedKeyPaths
+    }
 }
 
-if value.lastChanges.contains(\SomeState.isLoading) {
-    print("The last changes contains loading change")
+// We can also use diposeBag in the same way like RxSwift to handle more than one disposable in one place
+var disposeBag: DisposeBag! = DisposeBag()
+state.add(observer: { change in
+    if change ~= Change<SomeState>.StateChange.loading.changesDefinition {
+        print("Contains change isLoading")
+    }
+    // Or
+    if change.changesEqual(to: .everything) {
+        print("Everything has changed")
+    }
+}).addDisposableTo(disposeBag)
+state.set(for: \SomeState.counter, value: 2)
+state.set(for: \SomeState.isLoading, value: false)
+state.commit()
+disposeBag = nil
+
+// We can always check last changes
+if let lastCounterValue = state.lastChangeMatching(\SomeState.counter) {
+    print("Last changed counter value: \(lastCounterValue)")
+}
+
+if state.lastChanges.contains(\SomeState.isLoading) {
+    print("The last changes contain loading change")
 }
 ```
 
-More examples you will find in the playgound and in tests.
+More examples you will find in the playgound and in tests and in this [acrticle](https://medium.com/@sliwinski.lukas/changeable-follow-changes-with-keypaths-in-swift-4-e81d95c5d406).
 
 ---
 

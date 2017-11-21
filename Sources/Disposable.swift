@@ -25,7 +25,7 @@ public final class Disposable {
     }
 
     // MARK: - Dispose
-    func dispose() {
+    public func dispose() {
         _lock.lock(); defer { _lock.unlock() }
         if _disposed { return }
         disposeAction()
