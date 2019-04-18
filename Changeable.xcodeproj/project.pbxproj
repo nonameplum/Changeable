@@ -7,11 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35421EE52246650700D8A728 /* AnyKeyPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AE1FC1D4D000E93129 /* AnyKeyPath+Extensions.swift */; };
+		35421EE62246650700D8A728 /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AC1FC1D49600E93129 /* Change.swift */; };
+		35421EE72246650700D8A728 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
+		35421EE82246650700D8A728 /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AA1FC1D44600E93129 /* ChangeObserver.swift */; };
+		35421EE92246650700D8A728 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271A81FC1D3FF00E93129 /* Disposable.swift */; };
+		35421EEA2246650700D8A728 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8BDAB1FC208120095C172 /* DisposeBag.swift */; };
+		35421EF02246650900D8A728 /* AnyKeyPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AE1FC1D4D000E93129 /* AnyKeyPath+Extensions.swift */; };
+		35421EF12246650900D8A728 /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AC1FC1D49600E93129 /* Change.swift */; };
+		35421EF22246650900D8A728 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
+		35421EF32246650900D8A728 /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AA1FC1D44600E93129 /* ChangeObserver.swift */; };
+		35421EF42246650900D8A728 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271A81FC1D3FF00E93129 /* Disposable.swift */; };
+		35421EF52246650900D8A728 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8BDAB1FC208120095C172 /* DisposeBag.swift */; };
+		35421EFB2246650B00D8A728 /* AnyKeyPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AE1FC1D4D000E93129 /* AnyKeyPath+Extensions.swift */; };
+		35421EFC2246650B00D8A728 /* Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AC1FC1D49600E93129 /* Change.swift */; };
+		35421EFD2246650B00D8A728 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
+		35421EFE2246650B00D8A728 /* ChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271AA1FC1D44600E93129 /* ChangeObserver.swift */; };
+		35421EFF2246650B00D8A728 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9271A81FC1D3FF00E93129 /* Disposable.swift */; };
+		35421F002246650B00D8A728 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8BDAB1FC208120095C172 /* DisposeBag.swift */; };
 		52D6D9871BEFF229002C0205 /* Changeable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* Changeable.framework */; };
 		8933C7851EB5B820000D00A4 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
-		8933C7861EB5B820000D00A4 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
-		8933C7871EB5B820000D00A4 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
-		8933C7881EB5B820000D00A4 /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7841EB5B820000D00A4 /* Changeable.swift */; };
 		8933C78E1EB5B82C000D00A4 /* ChangeableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ChangeableTests.swift */; };
 		8933C78F1EB5B82C000D00A4 /* ChangeableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ChangeableTests.swift */; };
 		8933C7901EB5B82D000D00A4 /* ChangeableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* ChangeableTests.swift */; };
@@ -361,7 +376,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = plum;
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
@@ -382,11 +397,11 @@
 					};
 					52D6DA0E1BF000BD002C0205 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1020;
 					};
 					DD7502791C68FCFC006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1020;
 					};
 					DD75028C1C690C7A006590AF = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -396,10 +411,11 @@
 			};
 			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "Changeable" */;
 			compatibilityVersion = "Xcode 6.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 52D6D9721BEFF229002C0205;
 			productRefGroup = 52D6D97D1BEFF229002C0205 /* Products */;
@@ -495,7 +511,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7871EB5B820000D00A4 /* Changeable.swift in Sources */,
+				35421EF02246650900D8A728 /* AnyKeyPath+Extensions.swift in Sources */,
+				35421EF32246650900D8A728 /* ChangeObserver.swift in Sources */,
+				35421EF52246650900D8A728 /* DisposeBag.swift in Sources */,
+				35421EF42246650900D8A728 /* Disposable.swift in Sources */,
+				35421EF12246650900D8A728 /* Change.swift in Sources */,
+				35421EF22246650900D8A728 /* Changeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +524,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7881EB5B820000D00A4 /* Changeable.swift in Sources */,
+				35421EFB2246650B00D8A728 /* AnyKeyPath+Extensions.swift in Sources */,
+				35421EFE2246650B00D8A728 /* ChangeObserver.swift in Sources */,
+				35421F002246650B00D8A728 /* DisposeBag.swift in Sources */,
+				35421EFF2246650B00D8A728 /* Disposable.swift in Sources */,
+				35421EFC2246650B00D8A728 /* Change.swift in Sources */,
+				35421EFD2246650B00D8A728 /* Changeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +537,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8933C7861EB5B820000D00A4 /* Changeable.swift in Sources */,
+				35421EE52246650700D8A728 /* AnyKeyPath+Extensions.swift in Sources */,
+				35421EE82246650700D8A728 /* ChangeObserver.swift in Sources */,
+				35421EEA2246650700D8A728 /* DisposeBag.swift in Sources */,
+				35421EE92246650700D8A728 /* Disposable.swift in Sources */,
+				35421EE62246650700D8A728 /* Change.swift in Sources */,
+				35421EE72246650700D8A728 /* Changeable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +870,7 @@
 				PRODUCT_NAME = Changeable;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -863,13 +894,14 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		DD7502831C68FCFC006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/ChangeableTests.plist;
@@ -878,13 +910,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Changeable.Changeable-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		DD7502841C68FCFC006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Configs/ChangeableTests.plist;
@@ -894,13 +927,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		DD7502961C690C7A006590AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Configs/ChangeableTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Changeable.Changeable-tvOS-Tests";
@@ -914,6 +948,7 @@
 		DD7502971C690C7A006590AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Configs/ChangeableTests.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Changeable.Changeable-tvOS-Tests";

@@ -14,7 +14,7 @@ public extension Disposable {
 
      - parameter bag: `DisposeBag` to add `self` to.
      */
-    public func addDisposableTo(_ bag: DisposeBag) {
+    func addDisposableTo(_ bag: DisposeBag) {
         bag.insert(self)
     }
 }

@@ -35,7 +35,7 @@ open class Changeable<T> {
     public func add(matching keyPaths: [PartialKeyPath<T>]? = nil, observer: @escaping (Change<T>) -> Void) -> Disposable {
         guard let id = uniqueID.next() else { fatalError() }
 
-        observers[id] = ChangeObserver(closure: observer, query: keyPaths?.flatMap({ $0.hashValue }))
+        observers[id] = ChangeObserver(closure: observer, query: keyPaths?.compactMap({ $0.hashValue }))
 
         let disposable = Disposable { [weak self] in
             self?.observers.removeValue(forKey: id)
